@@ -160,10 +160,19 @@ def run_commands_with_netmiko(ip, creds, platform, commands):
         else:
             conn_params['password'] = creds.get('password')
 
-        if 'enable_secret' in creds:
-            conn_params['secret'] = creds['enable_secret']
+        if 'secret' in creds:
+            conn_params['secret'] = creds['secret']
+        
+        logger.debug(f"[{ip}] Platform: {platform}, Cred keys: {list(creds.keys())}")
+        logger.debug(f"[{ip}] Using secret: {conn_params.get('secret')}")
 
         conn = ConnectHandler(**conn_params)
+        logger.debug(f"[{ip}] Connection parameters: {conn_params}")
+        # Enter enable mode if secret is provided
+        if not platform.startswith("arista"):
+            conn.enable()
+        logger.info(f"[{ip}] Connected successfully with Netmiko.")
+        log_output += f"Connected to {ip} with Netmiko ({platform})\n"
 
         for cmd in commands:
             try:
