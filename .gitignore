@@ -1,0 +1,5 @@
+# ignore logs and temporary files
+*.zip
+*.txt
+summary.json
+summary.txt

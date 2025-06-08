@@ -1,0 +1,23 @@
+Cisco:
+  Default:
+    - show version
+    - show ip interface brief
+  Switch:
+    - show mac address-table
+  Router:
+    - show ip route
+
+Arista:
+  Default:
+    - show version
+    - show interfaces
+
+Juniper:
+  Default:
+    - show configuration
+    - show system uptime
+
+Palo Alto:
+  Default:
+    - show system info
+    - show config running
