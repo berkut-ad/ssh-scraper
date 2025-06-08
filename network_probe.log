@@ -1,0 +1,1190 @@
+2025-06-08 18:15:14,201 - INFO - Script started with arguments: Namespace(commands='commands.yaml', credentials='credentials.yaml', debug=True, ip_file='ip_list.txt', threads=1)
+2025-06-08 18:15:14,206 - INFO - [192.168.122.101] Processing started.
+2025-06-08 18:15:14,207 - INFO - [192.168.122.101] Starting NAPALM probe.
+2025-06-08 18:15:14,207 - DEBUG - [192.168.122.101] Trying NAPALM driver: eos
+2025-06-08 18:15:14,209 - DEBUG - starting thread (client mode): 0xaa0d4640
+2025-06-08 18:15:14,210 - DEBUG - Local version/idstring: SSH-2.0-paramiko_3.5.1
+2025-06-08 18:15:14,229 - DEBUG - Remote version/idstring: SSH-2.0-OpenSSH_7.8
+2025-06-08 18:15:14,229 - INFO - Connected (version 2.0, client OpenSSH_7.8)
+2025-06-08 18:15:14,234 - DEBUG - === Key exchange possibilities ===
+2025-06-08 18:15:14,234 - DEBUG - kex algos: curve25519-sha256@libssh.org, ecdh-sha2-nistp521, ecdh-sha2-nistp256, ecdh-sha2-nistp384, diffie-hellman-group14-sha1
+2025-06-08 18:15:14,234 - DEBUG - server key: rsa-sha2-512, rsa-sha2-256, ssh-rsa, ecdsa-sha2-nistp521, ssh-ed25519
+2025-06-08 18:15:14,234 - DEBUG - client encrypt: aes256-gcm@openssh.com, aes128-gcm@openssh.com, aes256-ctr, aes192-ctr, aes128-ctr
+2025-06-08 18:15:14,234 - DEBUG - server encrypt: aes256-gcm@openssh.com, aes128-gcm@openssh.com, aes256-ctr, aes192-ctr, aes128-ctr
+2025-06-08 18:15:14,235 - DEBUG - client mac: hmac-sha2-512-etm@openssh.com, hmac-sha2-256-etm@openssh.com, hmac-sha1-etm@openssh.com, hmac-sha2-512, hmac-sha2-256, hmac-sha1
+2025-06-08 18:15:14,235 - DEBUG - server mac: hmac-sha2-512-etm@openssh.com, hmac-sha2-256-etm@openssh.com, hmac-sha1-etm@openssh.com, hmac-sha2-512, hmac-sha2-256, hmac-sha1
+2025-06-08 18:15:14,235 - DEBUG - client compress: none, zlib@openssh.com
+2025-06-08 18:15:14,235 - DEBUG - server compress: none, zlib@openssh.com
+2025-06-08 18:15:14,235 - DEBUG - client lang: <none>
+2025-06-08 18:15:14,235 - DEBUG - server lang: <none>
+2025-06-08 18:15:14,235 - DEBUG - kex follows: False
+2025-06-08 18:15:14,235 - DEBUG - === Key exchange agreements ===
+2025-06-08 18:15:14,235 - DEBUG - Kex: curve25519-sha256@libssh.org
+2025-06-08 18:15:14,235 - DEBUG - HostKey: ssh-ed25519
+2025-06-08 18:15:14,235 - DEBUG - Cipher: aes128-ctr
+2025-06-08 18:15:14,236 - DEBUG - MAC: hmac-sha2-256
+2025-06-08 18:15:14,236 - DEBUG - Compression: none
+2025-06-08 18:15:14,236 - DEBUG - === End of kex handshake ===
+2025-06-08 18:15:14,250 - DEBUG - kex engine KexCurve25519 specified hash_algo <built-in function openssl_sha256>
+2025-06-08 18:15:14,251 - DEBUG - Switch to new keys ...
+2025-06-08 18:15:14,252 - DEBUG - Got EXT_INFO: {'server-sig-algs': b'ssh-ed25519,ssh-rsa,rsa-sha2-256,rsa-sha2-512,ssh-dss,ecdsa-sha2-nistp256,ecdsa-sha2-nistp384,ecdsa-sha2-nistp521,null'}
+2025-06-08 18:15:14,252 - DEBUG - Adding ssh-ed25519 host key for 192.168.122.101: b'd7f003044fb187e1a2b37990e9202986'
+2025-06-08 18:15:14,295 - DEBUG - userauth is OK
+2025-06-08 18:15:14,311 - DEBUG - Authentication type (password) not permitted.
+2025-06-08 18:15:14,312 - DEBUG - Allowed methods: ['publickey', 'keyboard-interactive']
+2025-06-08 18:15:14,313 - DEBUG - userauth is OK
+2025-06-08 18:15:14,402 - INFO - Authentication (keyboard-interactive) successful!
+2025-06-08 18:15:14,402 - DEBUG - [chan 0] Max packet in: 32768 bytes
+2025-06-08 18:15:14,423 - DEBUG - Received global request "hostkeys-00@openssh.com"
+2025-06-08 18:15:14,423 - DEBUG - Rejecting "hostkeys-00@openssh.com" global request from server.
+2025-06-08 18:15:14,464 - DEBUG - [chan 0] Max packet out: 32768 bytes
+2025-06-08 18:15:14,464 - DEBUG - Secsh channel 0 opened.
+2025-06-08 18:15:14,467 - DEBUG - [chan 0] Sesch channel 0 request ok
+2025-06-08 18:15:14,469 - DEBUG - [chan 0] Sesch channel 0 request ok
+2025-06-08 18:15:14,470 - DEBUG - write_channel: b'\n'
+2025-06-08 18:15:14,572 - DEBUG - read_channel: Last login: Sun Jun  8 08:14:24 2025 from 192.168.122.1
+
+
+2025-06-08 18:15:14,582 - DEBUG - read_channel: 
+2025-06-08 18:15:14,593 - DEBUG - read_channel: 
+2025-06-08 18:15:14,603 - DEBUG - read_channel: 
+2025-06-08 18:15:14,614 - DEBUG - read_channel: 
+2025-06-08 18:15:14,624 - DEBUG - read_channel: 
+2025-06-08 18:15:14,634 - DEBUG - read_channel: 
+2025-06-08 18:15:14,645 - DEBUG - read_channel: 
+2025-06-08 18:15:14,655 - DEBUG - read_channel: 
+2025-06-08 18:15:14,666 - DEBUG - read_channel: 
+2025-06-08 18:15:14,676 - DEBUG - read_channel: 
+2025-06-08 18:15:14,686 - DEBUG - read_channel: 
+2025-06-08 18:15:14,697 - DEBUG - read_channel: 
+2025-06-08 18:15:14,707 - DEBUG - read_channel: 
+2025-06-08 18:15:14,718 - DEBUG - read_channel: 
+2025-06-08 18:15:14,728 - DEBUG - read_channel: 
+2025-06-08 18:15:14,739 - DEBUG - read_channel: 
+2025-06-08 18:15:14,749 - DEBUG - read_channel: 
+2025-06-08 18:15:14,759 - DEBUG - read_channel: 
+2025-06-08 18:15:14,770 - DEBUG - read_channel: 
+2025-06-08 18:15:14,780 - DEBUG - read_channel: 
+2025-06-08 18:15:14,791 - DEBUG - read_channel: 
+
+2025-06-08 18:15:14,801 - DEBUG - read_channel: veos-a1>
+veos-a1>
+2025-06-08 18:15:14,801 - DEBUG - Pattern found: ([$>#]) Last login: Sun Jun  8 08:14:24 2025 from 192.168.122.1
+
+
+veos-a1>
+2025-06-08 18:15:14,802 - DEBUG - write_channel: b'terminal width 511\n'
+2025-06-08 18:15:14,803 - DEBUG - read_channel: 
+2025-06-08 18:15:14,813 - DEBUG - read_channel: terminal width 511
+Width set to 511 columns.
+veos-a1>
+2025-06-08 18:15:14,814 - DEBUG - Pattern found: (Width set to) 
+veos-a1>terminal width 511
+Width set to
+2025-06-08 18:15:14,814 - DEBUG - In disable_paging
+2025-06-08 18:15:14,814 - DEBUG - Command: terminal length 0
+
+2025-06-08 18:15:14,814 - DEBUG - write_channel: b'terminal length 0\n'
+2025-06-08 18:15:14,814 - DEBUG - read_channel: 
+2025-06-08 18:15:14,825 - DEBUG - read_channel: terminal length 0
+Pagination disabled.
+veos-a1>
+2025-06-08 18:15:14,825 - DEBUG - Pattern found: (Pagination disabled)  511 columns.
+veos-a1>terminal length 0
+Pagination disabled
+2025-06-08 18:15:14,826 - DEBUG -  511 columns.
+veos-a1>terminal length 0
+Pagination disabled
+2025-06-08 18:15:14,826 - DEBUG - Exiting disable_paging
+2025-06-08 18:15:14,836 - DEBUG - read_channel: 
+2025-06-08 18:15:14,840 - DEBUG - Clear buffer detects data in the channel
+2025-06-08 18:15:14,860 - DEBUG - read_channel: 
+2025-06-08 18:15:14,861 - DEBUG - write_channel: b'\n'
+2025-06-08 18:15:14,861 - DEBUG - read_channel: 
+2025-06-08 18:15:14,871 - DEBUG - read_channel: 
+veos-a1>
+2025-06-08 18:15:14,872 - DEBUG - 
+Parenthesis found in pattern.
+
+pattern: (\#|>)
+
+
+This can be problemtic when used in read_until_pattern().
+
+You should ensure that you use either non-capture groups i.e. '(?:' or that the
+parenthesis completely wrap the pattern '(pattern)'
+2025-06-08 18:15:14,872 - DEBUG - Pattern found: (\#|>) 
+veos-a1>
+2025-06-08 18:15:14,882 - DEBUG - read_channel: 
+2025-06-08 18:15:14,883 - DEBUG - [find_prompt()]: prompt is veos-a1>
+2025-06-08 18:15:14,883 - DEBUG - write_channel: b'\n'
+2025-06-08 18:15:14,883 - DEBUG - read_channel: 
+2025-06-08 18:15:14,894 - DEBUG - read_channel: 
+veos-a1>
+2025-06-08 18:15:14,894 - DEBUG - Pattern found: (veos\-a1.*) 
+veos-a1>
+2025-06-08 18:15:14,895 - DEBUG - write_channel: b'enable\n'
+2025-06-08 18:15:14,895 - DEBUG - read_channel: 
+2025-06-08 18:15:14,905 - DEBUG - read_channel: enable
+
+2025-06-08 18:15:14,906 - DEBUG - Pattern found: (enable) enable
+2025-06-08 18:15:14,906 - DEBUG - read_channel: 
+2025-06-08 18:15:14,917 - DEBUG - read_channel: veos-a1#
+2025-06-08 18:15:14,918 - DEBUG - Pattern found: ((?:veos\-a1|ssword)) 
+veos-a1
+2025-06-08 18:15:14,918 - DEBUG - read_channel: 
+2025-06-08 18:15:14,918 - DEBUG - Pattern found: (\#) #
+2025-06-08 18:15:14,929 - DEBUG - read_channel: 
+2025-06-08 18:15:14,929 - DEBUG - write_channel: b'\n'
+2025-06-08 18:15:14,930 - DEBUG - read_channel: 
+2025-06-08 18:15:14,940 - DEBUG - read_channel: 
+veos-a1#
+2025-06-08 18:15:14,940 - DEBUG - Pattern found: ([$>#]) 
+veos-a1#
+2025-06-08 18:15:14,951 - DEBUG - read_channel: 
+2025-06-08 18:15:14,951 - DEBUG - [find_prompt()]: prompt is veos-a1#
+2025-06-08 18:15:14,951 - DEBUG - write_channel: b'show version | json\n'
+2025-06-08 18:15:14,952 - DEBUG - read_channel: 
+2025-06-08 18:15:14,962 - DEBUG - read_channel: show version | json
+
+2025-06-08 18:15:14,963 - DEBUG - Pattern found: (show\ version\ \|\ json) show version | json
+2025-06-08 18:15:14,988 - DEBUG - read_channel: {
+    "mfgName": "Arista",
+    "modelName": "vEOS-lab",
+    "hardwareRevision": "",
+    "serialNumber": "CB94CBAB33899F6E08A7B856F75676AD",
+    "systemMacAddress": "52:54:00:8f:ae:9a",
+    "hwMacAddress": "00:00:00:00:00:00",
+    "configMacAddress": "00:00:00:00:00:00",
+    "version": "4.31.7M",
+    "architecture": "x86_64",
+    "internalVersion": "4.31.7M-41145530.4317M",
+    "internalBuildId": "27a7d0c8-1a29-4a31-baf4-b5189deaba17",
+    "imageFormatVersion": "1.0",
+    "imageOptimization": "None",
+    "bootupTimestamp": 1749012800.0823078,
+    "uptime": 393712.14,
+    "memTotal": 3970444,
+    "memFree": 2609316,
+    "isIntlVersion": false
+}
+veos-a1#
+2025-06-08 18:15:14,999 - DEBUG - read_channel: 
+2025-06-08 18:15:15,000 - DEBUG - write_channel: b'\n'
+2025-06-08 18:15:15,000 - DEBUG - read_channel: 
+2025-06-08 18:15:15,011 - DEBUG - read_channel: 
+veos-a1#
+2025-06-08 18:15:15,011 - DEBUG - Pattern found: ([$>#]) 
+veos-a1#
+2025-06-08 18:15:15,021 - DEBUG - read_channel: 
+2025-06-08 18:15:15,022 - DEBUG - [find_prompt()]: prompt is veos-a1#
+2025-06-08 18:15:15,022 - DEBUG - write_channel: b'show version | json\n'
+2025-06-08 18:15:15,022 - DEBUG - read_channel: 
+2025-06-08 18:15:15,033 - DEBUG - read_channel: show version | json
+{
+    "mfgName": "Arista",
+    "modelName": "vEOS-lab",
+    "hardwareRevision": "",
+    "serialNumber": "CB94CBAB33899F6E08A7B856F75676AD",
+    "systemMacAddress": "52:54:00:8f:ae:9a",
+    "hwMacAddress": "00:00:00:00:00:00",
+    "configMacAddress": "00:00:00:00:00:00",
+    "version": "4.31.7M",
+    "architecture": "x86_64",
+    "internalVersion": "4.31.7M-41145530.4317M",
+    "internalBuildId": "27a7d0c8-1a29-4a31-baf4-b5189deaba17",
+    "imageFormatVersion": "1.0",
+    "imageOptimization": "None",
+    "bootupTimestamp": 1749012800.0760126,
+    "uptime": 393712.21,
+    "memTotal": 3970444,
+    "memFree": 2609316,
+    "isIntlVersion": false
+}
+
+2025-06-08 18:15:15,033 - DEBUG - Pattern found: (show\ version\ \|\ json) show version | json
+2025-06-08 18:15:15,059 - DEBUG - read_channel: veos-a1#
+2025-06-08 18:15:15,069 - DEBUG - read_channel: 
+2025-06-08 18:15:15,070 - DEBUG - write_channel: b'\n'
+2025-06-08 18:15:15,070 - DEBUG - read_channel: 
+2025-06-08 18:15:15,081 - DEBUG - read_channel: 
+veos-a1#
+2025-06-08 18:15:15,081 - DEBUG - Pattern found: ([$>#]) 
+veos-a1#
+2025-06-08 18:15:15,091 - DEBUG - read_channel: 
+2025-06-08 18:15:15,092 - DEBUG - [find_prompt()]: prompt is veos-a1#
+2025-06-08 18:15:15,092 - DEBUG - write_channel: b'show hostname | json\n'
+2025-06-08 18:15:15,092 - DEBUG - read_channel: 
+2025-06-08 18:15:15,103 - DEBUG - read_channel: show hostname | json
+{
+    "hostname": "veos-a1",
+    "fqdn": "veos-a1"
+}
+veos-a1#
+2025-06-08 18:15:15,104 - DEBUG - Pattern found: (show\ hostname\ \|\ json) show hostname | json
+2025-06-08 18:15:15,129 - DEBUG - read_channel: 
+2025-06-08 18:15:15,139 - DEBUG - read_channel: 
+2025-06-08 18:15:15,140 - DEBUG - write_channel: b'\n'
+2025-06-08 18:15:15,140 - DEBUG - read_channel: 
+2025-06-08 18:15:15,151 - DEBUG - read_channel: 
+veos-a1#
+2025-06-08 18:15:15,151 - DEBUG - Pattern found: ([$>#]) 
+veos-a1#
+2025-06-08 18:15:15,161 - DEBUG - read_channel: 
+2025-06-08 18:15:15,162 - DEBUG - [find_prompt()]: prompt is veos-a1#
+2025-06-08 18:15:15,162 - DEBUG - write_channel: b'show interfaces | json\n'
+2025-06-08 18:15:15,162 - DEBUG - read_channel: 
+2025-06-08 18:15:15,173 - DEBUG - read_channel: show interfaces | json
+
+2025-06-08 18:15:15,174 - DEBUG - Pattern found: (show\ interfaces\ \|\ json) show interfaces | json
+2025-06-08 18:15:15,199 - DEBUG - read_channel: 
+2025-06-08 18:15:15,225 - DEBUG - read_channel: {
+    "interfaces": {
+        "Management1": {
+
+2025-06-08 18:15:15,251 - DEBUG - read_channel:             "name": "Management1",
+            "forwardingModel": "routed",
+            "lineProtocolStatus": "up",
+            "interfaceStatus": "connected",
+            "hardware": "ethernet",
+            "interfaceAddress": [
+                {
+                    "primaryIp": {
+                        "address": "192.168.122.101",
+                        "maskLen": 24
+                    },
+                    "secondaryIps": {},
+                    "secondaryIpsOrderedList": [],
+                    "virtualIp": {
+                        "address": "0.0.0.0",
+                        "maskLen": 0
+                    },
+                    "virtualSecondaryIps": {},
+                    "virtualSecondaryIpsOrderedList": [],
+                    "broadcastAddress": "255.255.255.255",
+                    "dhcp": false
+                }
+            ],
+            "physicalAddress": "52:54:00:89:70:80",
+            "burnedInAddress": "52:54:00:89:70:80",
+            "description": "",
+            "bandwidth": 1000000000,
+            "mtu": 1500,
+            "l3MtuConfigured": false,
+            "l2Mru": 0,
+            "lastStatusChangeTimestamp": 1749012886.1368256,
+            "interfaceStatistics": {
+                "updateInterval": 300.0,
+                "inBitsRate": 331.7672787968887,
+                "inPktsRate": 0.6102389329849671,
+                "outBitsRate": 195.6239233059245,
+                "outPktsRate": 0.15004217023627273
+            },
+            "interfaceCounters": {
+                "inOctets": 10697583,
+                "inUcastPkts": 202103,
+                "inMulticastPkts": 0,
+                "inBroadcastPkts": 0,
+                "inDiscards": 0,
+                "inTotalPkts": 202103,
+                "outOctets": 2881039,
+                "outUcastPkts": 18326,
+                "outMulticastPkts": 0,
+                "outBroadcastPkts": 0,
+                "outDiscards": 0,
+                "outTotalPkts": 18326,
+                "linkStatusChanges": 3,
+                "totalInErrors": 0,
+                "inputErrorsDetail": {
+                    "runtFrames": 0,
+                    "giantFrames": 0,
+                    "fcsErrors": 0,
+                    "alignmentErrors": 0,
+                    "symbolErrors": 0,
+                    "rxPause": 0
+                },
+                "totalOutErrors": 0,
+                "outputErrorsDetail": {
+                    "collisions": 0,
+                    "lateCollisions": 0,
+                    "deferredTransmissions": 0,
+                    "txPause": 0
+                },
+                "counterRefreshTime": 1749406512.4478116
+            },
+            "duplex": "duplexFull",
+            "autoNegotiate": "success",
+            "loopbackMode": "loopbackNone",
+            "lanes": 0
+        },
+        "Ethernet2": {
+            "name": "Ethernet2",
+            "forwardingModel": "dataLink",
+            "lineProtocolStatus": "up",
+            "interfaceStatus": "connected",
+            "hardware": "ethernet",
+            "interfaceAddress": [],
+            "physicalAddress": "52:54:00:54:cc:1f",
+            "burnedInAddress": "52:54:00:54:cc:1f",
+            "description": "",
+            "bandwidth": 1000000000,
+            "mtu": 9214,
+            "l3MtuConfigured": false,
+            "l2Mru": 0,
+            "lastStatusChangeTimestamp": 1749012894.3132334,
+            "interfaceMembership": "Member of Port-Channel101",
+            "interfaceStatistics": {
+                "updateInterval": 300.0,
+                "inBitsRate": 1565.993153851856,
+                "inPktsRate": 2.160139337162682,
+                "outBitsRate": 1316.7719060293862,
+                "outPktsRate": 2.1568799380501575
+            },
+            "interfaceCounters": {
+                "inOctets": 76795195,
+                "inUcastPkts": 819297,
+                "inMulticastPkts": 27901,
+                "inBroadcastPkts": 0,
+                "inDiscards": 0,
+                "inTotalPkts": 847198,
+                "outOctets": 64528790,
+                "outUcastPkts": 819291,
+                "outMulticastPkts": 26450,
+                "outBroadcastPkts": 0,
+                "outDiscards": 0,
+                "outTotalPkts": 845741,
+                "linkStatusChanges": 2,
+                "totalInErrors": 0,
+                "inputErrorsDetail": {
+                    "runtFrames": 0,
+                    "giantFrames": 0,
+                    "fcsErrors": 0,
+                    
+2025-06-08 18:15:15,278 - DEBUG - read_channel: "alignmentErrors": 0,
+                    "symbolErrors": 0,
+                    "rxPause": 0
+                },
+                "totalOutErrors": 0,
+                "outputErrorsDetail": {
+                    "collisions": 0,
+                    "lateCollisions": 0,
+                    "deferredTransmissions": 0,
+                    "txPause": 0
+                },
+                "counterRefreshTime": 1749406512.4512577
+            },
+            "duplex": "duplexFull",
+            "autoNegotiate": "unknown",
+            "loopbackMode": "loopbackNone",
+            "lanes": 0
+        },
+        "Ethernet4": {
+            "name": "Ethernet4",
+            "forwardingModel": "dataLink",
+            "lineProtocolStatus": "up",
+            "interfaceStatus": "connected",
+            "hardware": "ethernet",
+            "interfaceAddress": [],
+            "physicalAddress": "52:54:00:52:46:6c",
+            "burnedInAddress": "52:54:00:52:46:6c",
+            "description": "",
+            "bandwidth": 1000000000,
+            "mtu": 9214,
+            "l3MtuConfigured": false,
+            "l2Mru": 0,
+            "lastStatusChangeTimestamp": 1749013040.2838352,
+            "interfaceMembership": "Member of Port-Channel10",
+            "interfaceStatistics": {
+                "updateInterval": 300.0,
+                "inBitsRate": 77.37435807875349,
+                "inPktsRate": 0.06544005602479126,
+                "outBitsRate": 559.1863645263007,
+                "outPktsRate": 0.5551185223167687
+            },
+            "interfaceCounters": {
+                "inOctets": 3905888,
+                "inUcastPkts": 0,
+                "inMulticastPkts": 26549,
+                "inBroadcastPkts": 0,
+                "inDiscards": 0,
+                "inTotalPkts": 26549,
+                "outOctets": 27446827,
+                "outUcastPkts": 0,
+                "outMulticastPkts": 218063,
+                "outBroadcastPkts": 0,
+                "outDiscards": 0,
+                "outTotalPkts": 218063,
+                "linkStatusChanges": 2,
+                "totalInErrors": 0,
+                "inputErrorsDetail": {
+                    "runtFrames": 0,
+                    "giantFrames": 0,
+                    "fcsErrors": 0,
+                    "alignmentErrors": 0,
+                    "symbolErrors": 0,
+                    "rxPause": 0
+                },
+                "totalOutErrors": 0,
+                "outputErrorsDetail": {
+                    "collisions": 0,
+                    "lateCollisions": 0,
+                    "deferredTransmissions": 0,
+                    "txPause": 0
+                },
+                "counterRefreshTime": 1749406512.4540002
+            },
+            "duplex": "duplexFull",
+            "autoNegotiate": "unknown",
+            "loopbackMode": "loopbackNone",
+            "lanes": 0
+        },
+        "Ethernet1": {
+            "name": "Ethernet1",
+            "forwardingModel": "dataLink",
+            "lineProtocolStatus": "up",
+            "interfaceStatus": "connected",
+            "hardware": "ethernet",
+            "interfaceAddress": [],
+            "physicalAddress": "52:54:00:da:6e:82",
+            "burnedInAddress": "52:54:00:da:6e:82",
+            "description": "",
+            "bandwidth": 1000000000,
+            "mtu": 9214,
+            "l3MtuConfigured": false,
+            "l2Mru": 0,
+            "lastStatusChangeTimestamp": 1749012894.3122497,
+            "interfaceMembership": "Member of Port-Channel101",
+            "interfaceStatistics": {
+                "updateInterval": 300.0,
+                "inBitsRate": 1232.611698855088,
+                "inPktsRate": 1.69671158796071,
+                "outBitsRate": 1711.3790749610566,
+                "outPktsRate": 1.6987053920083617
+            },
+            "interfaceCounters": {
+                "inOctets": 60415966,
+                "inUcastPkts": 638752,
+                "inMulticastPkts": 26667,
+                "inBroadcastPkts": 0,
+                "inDiscards": 0,
+                "inTotalPkts": 665419,
+                "outOctets": 83969748,
+                "outUcastPkts": 638757,
+                "outMulticastPkts": 27036,
+                "outBroadcastPkts": 1448,
+                "outDiscards": 0,
+                "outTotalPkts": 667241,
+                "linkStatusChanges": 2,
+                "totalInErrors": 0,
+                "inputErrorsDetail": {
+                    "runtFrames": 0,
+                    "giantFrames": 0,
+                    "fcsErrors": 0,
+                    "alignmentErrors": 0,
+                    "symbolErrors": 0,
+                    "rxPause": 0
+                },
+                "totalOutErrors": 0,
+                "outputErrorsDetail": {
+                    "collisions": 0,
+                    "lateCollisions": 0,
+                    "deferredTransmissions": 0,
+                    "txPause": 0
+                },
+                "counterRefreshTime": 1749406512.4567666
+            },
+            "duplex": "duplexFull",
+            "autoNegotiate": "unknown",
+            "loopbackMode": "loopbackNone",
+            "lanes": 0
+        },
+        "Ethernet3": {
+            "name": "Ethernet3",
+            "forwardingModel": "bridged",
+            "lineProtocolStatus": "up",
+            "interfaceStatus": "connected",
+            "hardware": "ethernet",
+            "interfaceAddress": [],
+            "physicalAddress": "52:54:00:70:2e:85",
+            "burnedInAddress": "52:54:00:70:2e:85",
+            "description": "",
+            "bandwidth": 1000000000,
+            "mtu": 9214,
+            "l3MtuConfigured": false,
+            "l2Mru": 0,
+            "lastStatusChangeTimestamp": 1749013040.2835557,
+            "interfaceStatistics": {
+                "updateInterval": 300.0,
+                "inBitsRate": 44.83057470879675,
+                "inPktsRate": 0.03335625983257183,
+                "outBitsRate": 527.1352858327901,
+                "outPktsRate": 0.5249111834019422
+            },
+            "interfaceCounters": {
+                "inOctets": 2356593,
+                "inUcastPkts": 0,
+                "inMulticastPkts": 14448,
+                "inBroadcastPkts": 0,
+                "inDiscards": 0,
+                "inTotalPkts": 14448,
+                "outOctets": 25845506,
+                "outUcastPkts": 0,
+                "outMulticastPkts": 205996,
+                "outBroadcastPkts": 0,
+                "outDiscards": 0,
+                "outTotalPkts": 205996,
+                "linkStatusChanges": 2,
+                "totalInErrors": 0,
+                "inputErrorsDetail": {
+                    "runtFrames": 0,
+                    "giantFrames": 0,
+                    "fcsErrors": 0,
+                    "alignmentErrors": 0,
+                    "symbolErrors": 0,
+                    "rxPause": 0
+                },
+                "totalOutErrors": 0,
+                "outputErrorsDetail": {
+                    "collisions": 0,
+                    "lateCollisions": 0,
+                    "deferredTransmissions": 0,
+                    "txPause": 0
+                },
+                "counterRefreshTime": 1749406512.4593217
+            },
+            "duplex": "duplexFull",
+            "autoNegotiate": "unknown",
+            "loopbackMode": "loopbackNone",
+            "lanes": 0
+        },
+        "Ethernet5": {
+            "name": "Ethernet5",
+            "forwardingModel": "dataLink",
+            "lineProtocolStatus": "up",
+            "interfaceStatus": "connected",
+            "hardware": "ethernet",
+            "interfaceAddress": [],
+            "physicalAddress": "52:54:00:fe:53:c7",
+            "burnedInAddress": "52:54:00:fe:53:c7",
+            "description": "",
+            "bandwidth": 1000000000,
+            "mtu": 9214,
+            "l3MtuConfigured": false,
+            "l2Mru": 0,
+            "lastStatusChangeTimestamp": 1749013040.2839973,
+            "interfaceMembership": "Member of Port-Channel20",
+            "interfaceStatistics": {
+                "updateInterval": 300.0,
+                "inBitsRate": 77.55212204173341,
+                "inPktsRate": 0.0656587108167025,
+                "outBitsRate": 559.1185794292808,
+                "outPktsRate": 0.5550070898243686
+            },
+            "interfaceCounters": {
+                "inOctets": 3913564,
+                "inUcastPkts": 0,
+                "inMulticastPkts": 26654,
+                "inBroadcastPkts": 0,
+                "inDiscards": 0,
+                "inTotalPkts": 26654,
+                "outOctets": 27438860,
+                "outUcastPkts": 0,
+                "outMulticastPkts": 217956,
+                "outBroadcastPkts": 0,
+                "outDiscards": 0,
+                "outTotalPkts": 217956,
+                "linkStatusChanges": 2,
+                "totalInErrors": 0,
+                "inputErrorsDetail": {
+                    "runtFrames": 0,
+                    "giantFrames": 0,
+                    "fcsErrors": 0,
+                    "alignmentErrors": 0,
+                    "symbolErrors": 0,
+                    "rxPause": 0
+                },
+                "totalOutErrors": 0,
+                "outputErrorsDetail": {
+                    "collisions": 0,
+                    "lateCollisions": 0,
+                    "deferredTransmissions": 0,
+                    "txPause": 0
+                },
+                "counterRefreshTime": 1749406512.4620442
+            },
+            "duplex": "duplexFull",
+            "autoNegotiate": "unknown",
+            "loopbackMode": "loopbackNone",
+            "lanes": 0
+        },
+        "Port-Channel101": {
+            "name": "Port-Channel101",
+            "forwardingModel": "bridged",
+            "lineProtocolStatus": "up",
+            "interfaceStatus": "connected",
+            "hardware": "portChannel",
+            "interfaceAddress": [],
+            "physicalAddress": "52:54:00:54:cc:1f",
+            "description": "",
+            "bandwidth": 2000000000,
+            "mtu": 9214,
+            "l3MtuConfigured": false,
+            "l2Mru": 0,
+            "lastStatusChangeTimestamp": 1749012896.5357666,
+            "interfaceStatistics": {
+                "updateInterval": 300.0,
+                "inBitsRate": 2800.1006587689585,
+                "inPktsRate": 3.859040741980544,
+                "outBitsRate": 3029.465940613492,
+                "outPktsRate": 3.8577352614544047
+            },
+            "interfaceCounters": {
+                "inOctets": 137210010,
+                "inUcastPkts": 1458042,
+                "inMulticastPkts": 54564,
+                "inBroadcastPkts": 0,
+                "inDiscards": 0,
+                "inTotalPkts": 1512606,
+                "outOctets": 148497580,
+                "outUcastPkts": 1458041,
+                "outMulticastPkts": 53484,
+                "outBroadcastPkts": 1448,
+                "outDiscards": 0,
+                "outTotalPkts": 1512973,
+                "linkStatusChanges": 2,
+                "totalInErrors": 0,
+                "totalOutErrors": 0,
+                "counterRefreshTime": 1749406512.4677286
+            },
+            "memberInterfaces": {
+                "Ethernet1": {
+                    "bandwidth": 1000000000,
+                    "duplex": "duplexFull"
+                },
+                "Ethernet2": {
+                    "bandwidth": 1000000000,
+                    "duplex": "duplexFull"
+                }
+            },
+            "fallbackEnabled": false,
+            "fallbackEnabledType": "fallbackNone"
+        },
+        "Port-Channel20": {
+            "name": "Port-Channel20",
+            "forwardingModel": "bridged",
+            "lineProtocolStatus": "up",
+            "interfaceStatus": "connected",
+            "hardware": "portChannel",
+            "interfaceAddress": [],
+            "physicalAddress": "52:54:00:fe:53:c7",
+            "description": "",
+            "bandwidth": 2000000000,
+            "mtu": 9214,
+            "l3MtuConfigured": false,
+            "l2Mru": 0,
+            "lastStatusChangeTimestamp": 1749015315.8893874,
+            "interfaceStatistics": {
+                "updateInterval": 300.0,
+                "inBitsRate": 78.05808349163712,
+                "inPktsRate": 0.06608669836500256,
+                "outBitsRate": 559.5266534174413,
+                "outPktsRate": 0.5553325416408272
+            },
+            "interfaceCounters": {
+                "inOctets": 3890792,
+                "inUcastPkts": 0,
+                "inMulticastPkts": 26499,
+                "inBroadcastPkts": 0,
+                "inDiscards": 0,
+                "inTotalPkts": 26499,
+                "outOctets": 27415817,
+                "outUcastPkts": 0,
+                "outMulticastPkts": 217800,
+                "outBroadcastPkts": 0,
+                "outDiscards": 0,
+                "outTotalPkts": 217800,
+                "linkStatusChanges": 2,
+                "totalInErrors": 0,
+                "totalOutErrors": 0,
+                "counterRefreshTime": 1749406512.4716866
+            },
+            "memberInterfaces": {
+                "Ethernet5": {
+                    "bandwidth": 1000000000,
+                    "duplex": "duplexFull"
+                },
+                "PeerEthernet5": {
+                    "bandwidth": 1000000000,
+                    "duplex": "duplexFull"
+                }
+            },
+            "fallbackEnabled": false,
+            "fallbackEnabledType": "fallbackNone"
+        },
+        "Port-Channel10": {
+            "name": "Port-Channel10",
+            "forwardingModel": "bridged",
+            "lineProtocolStatus": "up",
+            "interfaceStatus": "connected",
+            "hardware": "portChannel",
+            "interfaceAddress": [],
+            "physicalAddress": "52:54:00:52:46:6c",
+            "description": "",
+            "bandwidth": 2000000000,
+            "mtu": 9214,
+            "l3MtuConfigured": false,
+            "l2Mru": 0,
+            "lastStatusChangeTimestamp": 1749015315.8819873,
+            "interfaceStatistics": {
+                "updateInterval": 300.0,
+                "inBitsRate": 77.87779393356574,
+                "inPktsRate": 0.06586527241653388,
+                "outBitsRate": 559.5918242074343,
+                "outPktsRate": 0.5554416057004415
+            },
+            "interfaceCounters": {
+                "inOctets": 3882948,
+                "inUcastPkts": 0,
+                "inMulticastPkts": 26393,
+                "inBroadcastPkts": 0,
+                "inDiscards": 0,
+                "inTotalPkts": 26393,
+                "outOctets": 27423784,
+                "outUcastPkts": 0,
+                "outMulticastPkts": 217907,
+                "outBroadcastPkts": 0,
+                "outDiscards": 0,
+                "outTotalPkts": 217907,
+                "linkStatusChanges": 2,
+                "totalInErrors": 0,
+                "totalOutErrors": 0,
+                "counterRefreshTime": 1749406512.4755218
+            },
+            "memberInterfaces": {
+                "Ethernet4": {
+                    "bandwidth": 1000000000,
+                    "duplex": "duplexFull"
+                },
+                "PeerEthernet4": {
+                    "bandwidth": 1000000000,
+                    "duplex": "duplexFull"
+                }
+            },
+            "fallbackEnabled": false,
+            "fallbackEnabledType": "fallbackNone"
+        },
+        "Vlan4094": {
+            "name": "Vlan4094",
+            "forwardingModel": "routed",
+            "lineProtocolStatus": "up",
+            "interfaceStatus": "connected",
+            "hardware": "vlan",
+            "interfaceAddress": [
+                {
+                    "primaryIp": {
+                        "address": "172.20.0.1",
+                        "maskLen": 30
+                    },
+                    "secondaryIps": {},
+                    "secondaryIpsOrderedList": [],
+                    "virtualIp": {
+                        "address": "0.0.0.0",
+                        "maskLen": 0
+                    },
+                    "virtualSecondaryIps": {},
+                    "virtualSecondaryIpsOrderedList": [],
+                    "broadcastAddress": "255.255.255.255",
+                    "dhcp": false
+                }
+            ],
+            "physicalAddress": "52:54:00:8f:ae:9a",
+            "burnedInAddress": "52:54:00:8f:ae:9a",
+            "description": "",
+            "bandwidth": 0,
+            "mtu": 1500,
+            "l3MtuConfigured": false,
+            "l2Mru": 0,
+            "lastStatusChangeTimestamp": 1749012888.0633574
+        }
+    }
+}
+veos-a1#
+2025-06-08 18:15:15,280 - DEBUG - [192.168.122.101] NAPALM facts received: {'hostname': 'veos-a1', 'fqdn': 'veos-a1', 'vendor': 'Arista', 'model': 'vEOS-lab', 'serial_number': 'CB94CBAB33899F6E08A7B856F75676AD', 'os_version': '4.31.7M-41145530.4317M', 'uptime': 393715.2040679455, 'interface_list': ['Ethernet1', 'Ethernet2', 'Ethernet3', 'Ethernet4', 'Ethernet5', 'Management1', 'Port-Channel10', 'Port-Channel20', 'Port-Channel101', 'Vlan4094']}
+2025-06-08 18:15:15,281 - DEBUG - write_channel: b'\n'
+2025-06-08 18:15:15,281 - DEBUG - read_channel: 
+2025-06-08 18:15:15,291 - DEBUG - read_channel: 
+veos-a1#
+2025-06-08 18:15:15,292 - DEBUG - Pattern found: ([>\#]) 
+veos-a1#
+2025-06-08 18:15:15,292 - DEBUG - write_channel: b'exit\n'
+2025-06-08 18:15:15,293 - INFO - [192.168.122.101] NAPALM probe successful with eos.
+2025-06-08 18:15:15,293 - INFO - [192.168.122.101] Running commands for vendor: Arista, platform: arista_eos
+2025-06-08 18:15:15,293 - INFO - [192.168.122.101] Running commands for vendor: Arista, platform: arista_eos
+2025-06-08 18:15:15,293 - INFO - [192.168.122.101] Connecting with Netmiko (arista_eos)
+2025-06-08 18:15:15,294 - DEBUG - EOF in transport thread
+2025-06-08 18:15:15,296 - DEBUG - starting thread (client mode): 0xaa0d4460
+2025-06-08 18:15:15,296 - DEBUG - Local version/idstring: SSH-2.0-paramiko_3.5.1
+2025-06-08 18:15:15,326 - DEBUG - Remote version/idstring: SSH-2.0-OpenSSH_7.8
+2025-06-08 18:15:15,327 - INFO - Connected (version 2.0, client OpenSSH_7.8)
+2025-06-08 18:15:15,336 - DEBUG - === Key exchange possibilities ===
+2025-06-08 18:15:15,337 - DEBUG - kex algos: curve25519-sha256@libssh.org, ecdh-sha2-nistp521, ecdh-sha2-nistp256, ecdh-sha2-nistp384, diffie-hellman-group14-sha1
+2025-06-08 18:15:15,337 - DEBUG - server key: rsa-sha2-512, rsa-sha2-256, ssh-rsa, ecdsa-sha2-nistp521, ssh-ed25519
+2025-06-08 18:15:15,337 - DEBUG - client encrypt: aes256-gcm@openssh.com, aes128-gcm@openssh.com, aes256-ctr, aes192-ctr, aes128-ctr
+2025-06-08 18:15:15,337 - DEBUG - server encrypt: aes256-gcm@openssh.com, aes128-gcm@openssh.com, aes256-ctr, aes192-ctr, aes128-ctr
+2025-06-08 18:15:15,337 - DEBUG - client mac: hmac-sha2-512-etm@openssh.com, hmac-sha2-256-etm@openssh.com, hmac-sha1-etm@openssh.com, hmac-sha2-512, hmac-sha2-256, hmac-sha1
+2025-06-08 18:15:15,337 - DEBUG - server mac: hmac-sha2-512-etm@openssh.com, hmac-sha2-256-etm@openssh.com, hmac-sha1-etm@openssh.com, hmac-sha2-512, hmac-sha2-256, hmac-sha1
+2025-06-08 18:15:15,337 - DEBUG - client compress: none, zlib@openssh.com
+2025-06-08 18:15:15,337 - DEBUG - server compress: none, zlib@openssh.com
+2025-06-08 18:15:15,338 - DEBUG - client lang: <none>
+2025-06-08 18:15:15,338 - DEBUG - server lang: <none>
+2025-06-08 18:15:15,338 - DEBUG - kex follows: False
+2025-06-08 18:15:15,338 - DEBUG - === Key exchange agreements ===
+2025-06-08 18:15:15,338 - DEBUG - Kex: curve25519-sha256@libssh.org
+2025-06-08 18:15:15,338 - DEBUG - HostKey: ssh-ed25519
+2025-06-08 18:15:15,338 - DEBUG - Cipher: aes128-ctr
+2025-06-08 18:15:15,338 - DEBUG - MAC: hmac-sha2-256
+2025-06-08 18:15:15,338 - DEBUG - Compression: none
+2025-06-08 18:15:15,339 - DEBUG - === End of kex handshake ===
+2025-06-08 18:15:15,352 - DEBUG - kex engine KexCurve25519 specified hash_algo <built-in function openssl_sha256>
+2025-06-08 18:15:15,352 - DEBUG - Switch to new keys ...
+2025-06-08 18:15:15,353 - DEBUG - Got EXT_INFO: {'server-sig-algs': b'ssh-ed25519,ssh-rsa,rsa-sha2-256,rsa-sha2-512,ssh-dss,ecdsa-sha2-nistp256,ecdsa-sha2-nistp384,ecdsa-sha2-nistp521,null'}
+2025-06-08 18:15:15,353 - DEBUG - Adding ssh-ed25519 host key for 192.168.122.101: b'd7f003044fb187e1a2b37990e9202986'
+2025-06-08 18:15:15,395 - DEBUG - userauth is OK
+2025-06-08 18:15:15,412 - DEBUG - Authentication type (password) not permitted.
+2025-06-08 18:15:15,412 - DEBUG - Allowed methods: ['publickey', 'keyboard-interactive']
+2025-06-08 18:15:15,413 - DEBUG - userauth is OK
+2025-06-08 18:15:15,469 - INFO - Authentication (keyboard-interactive) successful!
+2025-06-08 18:15:15,469 - DEBUG - [chan 0] Max packet in: 32768 bytes
+2025-06-08 18:15:15,490 - DEBUG - Received global request "hostkeys-00@openssh.com"
+2025-06-08 18:15:15,490 - DEBUG - Rejecting "hostkeys-00@openssh.com" global request from server.
+2025-06-08 18:15:15,531 - DEBUG - [chan 0] Max packet out: 32768 bytes
+2025-06-08 18:15:15,531 - DEBUG - Secsh channel 0 opened.
+2025-06-08 18:15:15,533 - DEBUG - [chan 0] Sesch channel 0 request ok
+2025-06-08 18:15:15,536 - DEBUG - [chan 0] Sesch channel 0 request ok
+2025-06-08 18:15:15,537 - DEBUG - write_channel: b'\n'
+2025-06-08 18:15:15,637 - DEBUG - read_channel: Last login: Sun Jun  8 18:15:11 2025 from 192.168.122.1
+
+
+2025-06-08 18:15:15,648 - DEBUG - read_channel: 
+2025-06-08 18:15:15,658 - DEBUG - read_channel: 
+2025-06-08 18:15:15,668 - DEBUG - read_channel: 
+2025-06-08 18:15:15,679 - DEBUG - read_channel: 
+2025-06-08 18:15:15,689 - DEBUG - read_channel: 
+2025-06-08 18:15:15,700 - DEBUG - read_channel: 
+2025-06-08 18:15:15,710 - DEBUG - read_channel: 
+2025-06-08 18:15:15,721 - DEBUG - read_channel: 
+2025-06-08 18:15:15,731 - DEBUG - read_channel: 
+2025-06-08 18:15:15,741 - DEBUG - read_channel: 
+2025-06-08 18:15:15,752 - DEBUG - read_channel: 
+2025-06-08 18:15:15,762 - DEBUG - read_channel: 
+2025-06-08 18:15:15,773 - DEBUG - read_channel: 
+2025-06-08 18:15:15,783 - DEBUG - read_channel: 
+2025-06-08 18:15:15,793 - DEBUG - read_channel: 
+2025-06-08 18:15:15,804 - DEBUG - read_channel: 
+2025-06-08 18:15:15,814 - DEBUG - read_channel: 
+2025-06-08 18:15:15,825 - DEBUG - read_channel: 
+2025-06-08 18:15:15,835 - DEBUG - read_channel: 
+
+2025-06-08 18:15:15,845 - DEBUG - read_channel: veos-a1>
+veos-a1>
+2025-06-08 18:15:15,846 - DEBUG - Pattern found: ([$>#]) Last login: Sun Jun  8 18:15:11 2025 from 192.168.122.1
+
+
+veos-a1>
+2025-06-08 18:15:15,846 - DEBUG - write_channel: b'terminal width 511\n'
+2025-06-08 18:15:15,846 - DEBUG - read_channel: 
+2025-06-08 18:15:15,857 - DEBUG - read_channel: terminal width 511
+Width set to 511 columns.
+veos-a1>
+2025-06-08 18:15:15,857 - DEBUG - Pattern found: (Width set to) 
+veos-a1>terminal width 511
+Width set to
+2025-06-08 18:15:15,857 - DEBUG - In disable_paging
+2025-06-08 18:15:15,857 - DEBUG - Command: terminal length 0
+
+2025-06-08 18:15:15,858 - DEBUG - write_channel: b'terminal length 0\n'
+2025-06-08 18:15:15,858 - DEBUG - read_channel: 
+2025-06-08 18:15:15,868 - DEBUG - read_channel: terminal length 0
+Pagination disabled.
+veos-a1>
+2025-06-08 18:15:15,868 - DEBUG - Pattern found: (Pagination disabled)  511 columns.
+veos-a1>terminal length 0
+Pagination disabled
+2025-06-08 18:15:15,869 - DEBUG -  511 columns.
+veos-a1>terminal length 0
+Pagination disabled
+2025-06-08 18:15:15,869 - DEBUG - Exiting disable_paging
+2025-06-08 18:15:15,879 - DEBUG - read_channel: 
+2025-06-08 18:15:15,880 - DEBUG - Clear buffer detects data in the channel
+2025-06-08 18:15:15,900 - DEBUG - read_channel: 
+2025-06-08 18:15:15,900 - DEBUG - write_channel: b'\n'
+2025-06-08 18:15:15,901 - DEBUG - read_channel: 
+2025-06-08 18:15:15,911 - DEBUG - read_channel: 
+
+2025-06-08 18:15:15,921 - DEBUG - read_channel: 
+2025-06-08 18:15:15,932 - DEBUG - read_channel: veos-a1>
+2025-06-08 18:15:15,932 - DEBUG - 
+Parenthesis found in pattern.
+
+pattern: (\#|>)
+
+
+This can be problemtic when used in read_until_pattern().
+
+You should ensure that you use either non-capture groups i.e. '(?:' or that the
+parenthesis completely wrap the pattern '(pattern)'
+2025-06-08 18:15:15,932 - DEBUG - Pattern found: (\#|>) 
+veos-a1>
+2025-06-08 18:15:15,943 - DEBUG - read_channel: 
+2025-06-08 18:15:15,943 - DEBUG - [find_prompt()]: prompt is veos-a1>
+2025-06-08 18:15:15,953 - DEBUG - read_channel: 
+2025-06-08 18:15:15,954 - DEBUG - write_channel: b'\n'
+2025-06-08 18:15:15,954 - DEBUG - read_channel: 
+2025-06-08 18:15:15,964 - DEBUG - read_channel: 
+veos-a1>
+2025-06-08 18:15:15,965 - DEBUG - Pattern found: ([$>#]) 
+veos-a1>
+2025-06-08 18:15:15,975 - DEBUG - read_channel: 
+2025-06-08 18:15:15,975 - DEBUG - [find_prompt()]: prompt is veos-a1>
+2025-06-08 18:15:15,976 - DEBUG - write_channel: b'show version\n'
+2025-06-08 18:15:15,976 - DEBUG - read_channel: 
+2025-06-08 18:15:15,987 - DEBUG - read_channel: show version
+Arista vEOS-lab
+Hardware version: 
+Serial number: CB94CBAB33899F6E08A7B856F75676AD
+Hardware MAC address: 5254.008f.ae9a
+System MAC address: 5254.008f.ae9a
+
+2025-06-08 18:15:15,987 - DEBUG - Pattern found: (show\ version) show version
+2025-06-08 18:15:16,013 - DEBUG - read_channel: 
+Software image version: 4.31.7M
+Architecture: x86_64
+Internal build version: 4.31.7M-41145530.4317M
+Internal build ID: 27a7d0c8-1a29-4a31-baf4-b5189deaba17
+Image format version: 1.0
+Image optimization: None
+
+Uptime: 4 days, 13 hours and 21 minutes
+Total memory: 3970444 kB
+Free memory: 2610080 kB
+
+veos-a1>
+2025-06-08 18:15:16,013 - INFO - [192.168.122.101] Ran command: show version
+2025-06-08 18:15:16,024 - DEBUG - read_channel: 
+2025-06-08 18:15:16,024 - DEBUG - write_channel: b'\n'
+2025-06-08 18:15:16,025 - DEBUG - read_channel: 
+2025-06-08 18:15:16,035 - DEBUG - read_channel: 
+veos-a1>
+2025-06-08 18:15:16,035 - DEBUG - Pattern found: ([$>#]) 
+veos-a1>
+2025-06-08 18:15:16,046 - DEBUG - read_channel: 
+2025-06-08 18:15:16,046 - DEBUG - [find_prompt()]: prompt is veos-a1>
+2025-06-08 18:15:16,046 - DEBUG - write_channel: b'show interfaces\n'
+2025-06-08 18:15:16,047 - DEBUG - read_channel: 
+2025-06-08 18:15:16,057 - DEBUG - read_channel: show interfaces
+
+2025-06-08 18:15:16,058 - DEBUG - Pattern found: (show\ interfaces) show interfaces
+2025-06-08 18:15:16,083 - DEBUG - read_channel: 
+2025-06-08 18:15:16,110 - DEBUG - read_channel: Ethernet1 is up, line protocol is up (connected)
+  Hardware is Ethernet, address is 5254.00da.6e82 (bia 5254.00da.6e82)
+  Member of Port-Channel101
+  Ethernet MTU 9214 bytes, BW 1000000 kbit
+  Full-duplex, 1Gb/s, auto negotiation: off, uni-link: n/a
+  Up 4 days, 13 hours, 20 minutes, 19 seconds
+  Loopback Mode : None
+  2 link status changes since last clear
+  Last clearing of "show interface" counters never
+  5 minutes input rate 1.23 kbps (0.0% with framing overhead), 2 packets/sec
+  5 minutes output rate 1.71 kbps (0.0% with framing overhead), 2 packets/sec
+     665419 packets input, 60415966 bytes
+     Received 0 broadcasts, 26667 multicast
+     0 runts, 0 giants
+     0 input errors, 0 CRC, 0 alignment, 0 symbol, 0 input discards
+     0 PAUSE input
+     667241 packets output, 83969748 bytes
+     Sent 1448 broadcasts, 27036 multicast
+     0 output errors, 0 collisions
+     0 late collision, 0 deferred, 0 output discards
+     0 PAUSE output
+Ethernet2 is up, line protocol is up (connected)
+  Hardware is Ethernet, address is 5254.0054.cc1f (bia 5254.0054.cc1f)
+  Member of Port-Channel101
+  Ethernet MTU 9214 bytes, BW 1000000 kbit
+  Full-duplex, 1Gb/s, auto negotiation: off, uni-link: n/a
+  Up 4 days, 13 hours, 20 minutes, 19 seconds
+  Loopback Mode : None
+  2 link status changes since last clear
+  Last clearing of "show interface" counters never
+  5 minutes input rate 1.57 kbps (0.0% with framing overhead), 2 packets/sec
+  5 minutes output rate 1.32 kbps (0.0% with framing overhead), 2 packets/sec
+     847199 packets input, 76795274 bytes
+     Received 0 broadcasts, 27901 multicast
+     0 runts, 0 giants
+     0 input errors, 0 CRC, 0 alignment, 0 symbol, 0 input discards
+     0 PAUSE input
+     845742 packets output, 64528864 bytes
+     Sent 0 broadcasts, 26450 multicast
+     0 output errors, 0 collisions
+     0 late collision, 0 deferred, 0 output discards
+     0 PAUSE output
+Ethernet3 is up, line protocol is up (connected)
+  Hardware is Ethernet, address is 5254.0070.2e85 (bia 5254.0070.2e85)
+  Ethernet MTU 9214 bytes, BW 1000000 kbit
+  Full-duplex, 1Gb/s, auto negotiation: off, uni-link: n/a
+  Up 4 days, 13 hours, 17 minutes, 53 seconds
+  Loopback Mode : None
+  2 link status changes since last clear
+  Last clearing of "show interface" counters never
+  5 minutes input rate 45 bps (0.0% with framing overhead), 0 packets/sec
+  5 minutes output rate 526 bps (0.0% with framing overhead), 1 packets/sec
+     14448 packets input, 2356593 bytes
+     Received 0 broadcasts, 14448 multicast
+     0 runts, 0 giants
+     0 input errors, 0 CRC, 0 alignment, 0 symbol, 0 input discards
+     0 PAUSE input
+     205996 packets output, 25845506 bytes
+     Sent 0 broadcasts, 205996 multicast
+     0 output errors, 0 collisions
+     0 late collision, 0 deferred, 0 output discards
+     0 PAUSE output
+Ethernet4 is up, line protocol is up (connected)
+  Hardware is Ethernet, address is 5254.0052.466c (bia 5254.0052.466c)
+  Member of Port-Channel10
+  Ethernet MTU 9214 bytes, BW 1000000 kbit
+  Full-duplex, 1Gb/s, auto negotiation: off, uni-link: n/a
+  Up 4 days, 13 hours, 17 minutes, 53 seconds
+  Loopback Mode : None
+  2 link status changes since last clear
+  Last clearing of "show interface" counters never
+  5 minutes input rate 77 bps (0.0% with framing overhead), 0 packets/sec
+  5 minutes output rate 558 bps (0.0% with framing overhead), 1 packets/sec
+     26549 packets input, 3905888 bytes
+     Received 0 broadcasts, 26549 multicast
+     0 runts, 0 giants
+     0 input errors, 0 CRC, 0 alignment, 0 symbol, 0 input discards
+     0 PAUSE input
+     218063 packets output, 27446827 bytes
+     Sent 0 broadcasts, 218063 multicast
+     0 output errors, 0 collisions
+     0 late collision, 0 deferred, 0 output discards
+     0 PAUSE output
+Ethernet5 is up, line protocol is up (connected)
+  Hardware is Ethernet, address is 5254.00fe.53c7 (bia 5254.00fe.53c7)
+  Member of Port-Channel20
+  Ethernet MTU 9214 bytes, BW 1000000 kbit
+  Full-duplex, 1Gb/s, auto negotiation: off, uni-link: n/a
+  Up 4 days, 13 hours, 17 minutes, 53 seconds
+  Loopback Mode : None
+  2 link status changes since last clear
+  Last clearing of "show interface" counters never
+  5 minutes input rate 77 bps (0.0% with framing overhead), 0 packets/sec
+  5 minutes output rate 558 bps (0.0% with framing overhead), 1 packets/sec
+     26654 packets input, 3913564 bytes
+     Received 0 broadcasts, 26654 multicast
+     0 runts, 0 giants
+     0 input errors, 0 CRC, 0 alignment, 0 symbol, 0 input discards
+     0 PAUSE input
+     217956 packets output, 27438860 bytes
+     Sent 0 broadcasts, 217956 multicast
+     0 output errors, 0 collisions
+     0 late collision, 0 deferred, 0 output discards
+     0 PAUSE output
+Management1 is up, line protocol is up (connected)
+  Hardware is Ethernet, address is 5254.0089.7080 (bia 5254.0089.7080)
+  Internet address is 192.168.122.101/24
+  Broadcast address is 255.255.255.255
+  IP MTU 1500 bytes (default), BW 1000000 kbit
+  Full-duplex, 1Gb/s, auto negotiation: on, uni-link: n/a
+  Up 4 days, 13 hours, 20 minutes, 27 seconds
+  Loopback Mode : None
+  3 link status changes since last clear
+  Last clearing of "show interface" counters never
+  5 minutes input rate 566 bps (0.0% with framing overhead), 1 packets/sec
+  5 minutes output rate 1.88 kbps (0.0% with framing overhead), 1 packets/sec
+     202190 packets input, 10706439 bytes
+     Received 0 broadcasts, 0 multicast
+     0 runts, 0 giants
+     0 input errors, 0 CRC, 0 alignment, 0 symbol, 0 input discards
+     0 PAUSE input
+     18633 packets output, 2944490 bytes
+     Sent 0 broadcasts, 0 multicast
+     0 output errors, 0 collisions
+     0 late collision, 0 deferred, 0 output discards
+
+2025-06-08 18:15:16,136 - DEBUG - read_channel:      0 PAUSE output
+Port-Channel10 is up, line protocol is up (connected)
+  Hardware is Port-Channel, address is 5254.0052.466c
+  Ethernet MTU 9214 bytes, BW 2000000 kbit
+  Full-duplex, 2Gb/s 
+  Active members in this channel: 2
+  ... Ethernet4 , Full-duplex, 1Gb/s
+  ... PeerEthernet4 , Full-duplex, 1Gb/s
+  Fallback mode is: off
+  Up 4 days, 12 hours, 39 minutes, 57 seconds
+  2 link status changes since last clear
+  Last clearing of "show interface" counters never
+  5 minutes input rate 77 bps (0.0% with framing overhead), 0 packets/sec
+  5 minutes output rate 559 bps (0.0% with framing overhead), 1 packets/sec
+     26393 packets input, 3882948 bytes
+     Received 0 broadcasts, 26393 multicast
+     0 input errors, 0 input discards
+     217908 packets output, 27423907 bytes
+     Sent 0 broadcasts, 217908 multicast
+     0 output errors, 0 output discards
+Port-Channel20 is up, line protocol is up (connected)
+  Hardware is Port-Channel, address is 5254.00fe.53c7
+  Ethernet MTU 9214 bytes, BW 2000000 kbit
+  Full-duplex, 2Gb/s 
+  Active members in this channel: 2
+  ... Ethernet5 , Full-duplex, 1Gb/s
+  ... PeerEthernet5 , Full-duplex, 1Gb/s
+  Fallback mode is: off
+  Up 4 days, 12 hours, 39 minutes, 57 seconds
+  2 link status changes since last clear
+  Last clearing of "show interface" counters never
+  5 minutes input rate 78 bps (0.0% with framing overhead), 0 packets/sec
+  5 minutes output rate 559 bps (0.0% with framing overhead), 1 packets/sec
+     26499 packets input, 3890792 bytes
+     Received 0 broadcasts, 26499 multicast
+     0 input errors, 0 input discards
+     217801 packets output, 27415940 bytes
+     Sent 0 broadcasts, 217801 multicast
+     0 output errors, 0 output discards
+Port-Channel101 is up, line protocol is up (connected)
+  Hardware is Port-Channel, address is 5254.0054.cc1f
+  Ethernet MTU 9214 bytes, BW 2000000 kbit
+  Full-duplex, 2Gb/s 
+  Active members in this channel: 2
+  ... Ethernet1 , Full-duplex, 1Gb/s
+  ... Ethernet2 , Full-duplex, 1Gb/s
+  Fallback mode is: off
+  Up 4 days, 13 hours, 20 minutes, 16 seconds
+  2 link status changes since last clear
+  Last clearing of "show interface" counters never
+  5 minutes input rate 2.80 kbps (0.0% with framing overhead), 4 packets/sec
+  5 minutes output rate 3.03 kbps (0.0% with framing overhead), 4 packets/sec
+     1512613 packets input, 137210649 bytes
+     Received 0 broadcasts, 54564 multicast
+     0 input errors, 0 input discards
+     1512980 packets output, 148498282 bytes
+     Sent 1448 broadcasts, 53484 multicast
+     0 output errors, 0 output discards
+Vlan4094 is up, line protocol is up (connected)
+  Hardware is Vlan, address is 5254.008f.ae9a (bia 5254.008f.ae9a)
+  Internet address is 172.20.0.1/30
+  Broadcast address is 255.255.255.255
+  IP MTU 1500 bytes (default)
+  Up 4 days, 13 hours, 20 minutes, 25 seconds
+veos-a1>
+2025-06-08 18:15:16,136 - INFO - [192.168.122.101] Ran command: show interfaces
+2025-06-08 18:15:16,136 - DEBUG - write_channel: b'\n'
+2025-06-08 18:15:16,137 - DEBUG - read_channel: 
+2025-06-08 18:15:16,147 - DEBUG - read_channel: 
+veos-a1>
+2025-06-08 18:15:16,147 - DEBUG - Pattern found: ([>\#]) 
+veos-a1>
+2025-06-08 18:15:16,148 - DEBUG - write_channel: b'exit\n'
+2025-06-08 18:15:16,148 - INFO - [192.168.122.101] Log written to logs/192.168.122.101.txt
+2025-06-08 18:15:16,149 - DEBUG - EOF in transport thread
+2025-06-08 18:15:16,149 - INFO - Completed device: 192.168.122.101 - Status: Success
+2025-06-08 18:15:16,152 - INFO - Script completed.

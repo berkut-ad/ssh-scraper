@@ -4,6 +4,7 @@ import csv
 import json
 import logging
 import argparse
+from collections import defaultdict
 from tabulate import tabulate
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from netmiko import ConnectHandler
@@ -15,7 +16,6 @@ os.makedirs(LOG_DIR, exist_ok=True)
 logger = logging.getLogger(__name__)
 
 
-# Setup logging
 def setup_logging(debug=False):
     log_format = '%(asctime)s - %(levelname)s - %(message)s'
     logging.basicConfig(
@@ -52,21 +52,8 @@ def get_platform_mapping(vendor):
         return "arista_eos"
     elif "palo alto" in vendor or "paloalto" in vendor:
         return "paloalto_panos"
-    return None
+    return "generic"
 
-# Suppress repetitive debug logs
-class RepeatedLogFilter(logging.Filter):
-    def __init__(self):
-        self.counter = defaultdict(int)
-        self.last_msg = ""
-
-    def filter(self, record):
-        msg = record.getMessage()
-        if "read_channel" in msg:
-            self.counter[msg] += 1
-            if self.counter[msg] > 5:
-                return False
-        return True
 
 def probe_device_with_napalm(ip, creds):
     logger.info(f"[{ip}] Starting NAPALM probe.")
@@ -76,28 +63,22 @@ def probe_device_with_napalm(ip, creds):
                 logger.debug(f"[{ip}] Trying NAPALM driver: {driver_name}")
                 driver = get_network_driver(driver_name)
 
-                optional_args = {}
-
-                if driver_name == "eos":
-                    optional_args["transport"] = "ssh" #default transport uses eAPI over http
-                    optional_args["port"] = 22 
-
+                optional_args = creds.get('optional_args', {})
                 device = driver(
                     hostname=ip,
                     username=creds['username'],
-                    password=creds['password'],
+                    password=creds.get('password', ''),
                     optional_args=optional_args
                 )
                 device.open()
                 facts = device.get_facts()
-                logging.debug(f"[{ip}] NAPALM facts received: {facts}")
+                logger.debug(f"[{ip}] NAPALM facts received: {facts}")
                 if not facts:
                     logger.warning(f"[{ip}] No facts returned by NAPALM driver {driver_name}.")
                     device.close()
                     continue
                 device.close()
 
-                # Attempt better vendor/platform detection
                 vendor = facts.get("vendor", "").lower()
                 model = facts.get("model", "").lower()
                 hostname = facts.get("hostname", "").lower()
@@ -120,7 +101,6 @@ def probe_device_with_napalm(ip, creds):
                     vendor_name = vendor or "Unknown"
 
                 logger.info(f"[{ip}] NAPALM probe successful with {driver_name}.")
-                logging.info(f"[{ip}] Running commands for vendor: {vendor_name}, platform: {platform}")
                 return {
                     'ip': ip,
                     'platform': platform,
@@ -166,13 +146,25 @@ def get_command_list(commands_data, vendor, device_type='Default'):
 def run_commands_with_netmiko(ip, creds, platform, commands):
     logger.info(f"[{ip}] Connecting with Netmiko ({platform})")
     log_output = ""
+
     try:
-        conn = ConnectHandler(
-            device_type=platform,
-            host=ip,
-            username=creds['username'],
-            password=creds['password'],
-        )
+        conn_params = {
+            'device_type': platform,
+            'host': ip,
+            'username': creds['username'],
+        }
+
+        if creds.get('auth_method') == 'ssh_key':
+            conn_params['use_keys'] = True
+            conn_params['key_file'] = creds.get('ssh_key_file')
+        else:
+            conn_params['password'] = creds.get('password')
+
+        if 'enable_secret' in creds:
+            conn_params['secret'] = creds['enable_secret']
+
+        conn = ConnectHandler(**conn_params)
+
         for cmd in commands:
             try:
                 out = conn.send_command(cmd)
@@ -181,10 +173,12 @@ def run_commands_with_netmiko(ip, creds, platform, commands):
             except Exception as e:
                 logger.error(f"[{ip}] Error running command '{cmd}': {e}")
                 log_output += f"\n>> {cmd}\nERROR: {str(e)}\n"
+
         conn.disconnect()
     except Exception as e:
         logger.error(f"[{ip}] Netmiko connection error: {e}")
         log_output += f"\nConnection error: {str(e)}\n"
+
     return log_output
 
 
