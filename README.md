@@ -16,3 +16,6 @@ deactivate
 pip install paramiko pyyaml textfsm
 pip install netmiko napalm
 pip install napalm-eos napalm-junos napalm-ios
+
+
+NAPALM’s Arista eos driver uses pyeapi by default, not Netmiko or Paramiko directly. And pyeapi does not support SSH key-based auth unless you're connecting over HTTPS with eAPI enabled on the device. That's why it's falling back to keyboard-interactive and failing.
