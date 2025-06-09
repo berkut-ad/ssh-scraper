@@ -22,7 +22,7 @@ NAPALM’s Arista eos driver uses pyeapi by default, not Netmiko or Paramiko dir
 # Use with Versions below 4.23.0 for Arista EOS comment out lines 227 and 228 in napalm library
 # in the class - napalm > eos > eos.py > class EOSDriver(NetworkDriver):
  
-        #if self._eos_version < EOSVersion("4.23.0"):
+        # if self._eos_version < EOSVersion("4.23.0"):
         #    raise UnsupportedVersion(self._eos_version)
 
 # NAPALM CLI commands.
@@ -31,7 +31,7 @@ napalm --debug --vendor eos --user admin --password Password@123 --optional_args
 
 # Use of curl to test if eAPI is working on Arista. 
 
-'```
+``` bash
 $ curl -k -u admin:Password@123   -H "Content-Type: application/json"   -X POST   https://10.10.10.1/command-api   -d '{
     "jsonrpc": "2.0",
     "method": "runCmds",
