@@ -9,13 +9,41 @@ Use NAPALM for probing (vendor, model, uptime, version).
 Use Netmiko for running command sets.
 Reuse credentials.yaml, commands.yaml, and ip_list.txt.
 
-COMMANDS
+# PIP requirements
 
 pyenv activate napalm-env
 deactivate
-pip install paramiko pyyaml textfsm
-pip install netmiko napalm
-pip install napalm-eos napalm-junos napalm-ios
+pip install napalm
+pip install tabulate
 
-
+# Why NAPALM doesnt work for Arista SSH-key based auth.
 NAPALM’s Arista eos driver uses pyeapi by default, not Netmiko or Paramiko directly. And pyeapi does not support SSH key-based auth unless you're connecting over HTTPS with eAPI enabled on the device. That's why it's falling back to keyboard-interactive and failing.
+
+# Use with Versions below 4.23.0 for Arista EOS comment out lines 227 and 228 in napalm library
+# in the class - napalm > eos > eos.py > class EOSDriver(NetworkDriver):
+ 
+        #if self._eos_version < EOSVersion("4.23.0"):
+        #    raise UnsupportedVersion(self._eos_version)
+
+# NAPALM CLI commands.
+napalm --debug --vendor eos --user admin --password Ar1sta --optional_args "transport=http" 10.10.10.1 call get_facts
+napalm --debug --vendor eos --user admin --password Password@123 --optional_args transport=\"http\" 10.10.10.1 call get_facts
+
+# Use of curl to test if eAPI is working on Arista. 
+
+'```
+$ curl -k -u admin:Password@123   -H "Content-Type: application/json"   -X POST   https://10.10.10.1/command-api   -d '{
+    "jsonrpc": "2.0",
+    "method": "runCmds",
+    "params": {
+      "version": 1,
+      "cmds": ["show version"],
+      "format": "json"
+    },
+    "id": "1"
+  }'
+```
+
+
+
+ 
