@@ -54,10 +54,24 @@ def get_platform_mapping(vendor):
         return "paloalto_panos"
     return "generic"
 
-
 def probe_device_with_napalm(ip, creds):
     logger.info(f"[{ip}] Starting NAPALM probe.")
+
     try:
+        # Detect if Arista and SSH transport (eAPI not available)
+        if creds.get('optional_args', {}).get('transport', '') == 'ssh':
+            logger.info(f"[{ip}] Arista with SSH transport detected — skipping NAPALM.")
+            return {
+                'ip': ip,
+                'platform': 'arista_eos',
+                'vendor': 'Arista',
+                'model': '-',
+                'version': '-',
+                'uptime': '-',
+                'device_type': 'Default',
+                'status': 'Skipped NAPALM (SSH transport)'
+            }
+
         for driver_name in ['eos', 'ios', 'nxos', 'junos', 'panos']:
             try:
                 logger.debug(f"[{ip}] Trying NAPALM driver: {driver_name}")
@@ -111,6 +125,7 @@ def probe_device_with_napalm(ip, creds):
                     'device_type': 'Default',
                     'status': 'Success'
                 }
+
             except Exception as e:
                 logger.debug(f"[{ip}] NAPALM driver {driver_name} failed: {e}")
                 continue
@@ -125,6 +140,7 @@ def probe_device_with_napalm(ip, creds):
             'device_type': '-',
             'status': 'Unrecognized platform'
         }
+
     except Exception as e:
         logger.error(f"[{ip}] NAPALM probe error: {e}")
         return {
