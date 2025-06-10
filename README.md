@@ -1,4 +1,4 @@
-# 🔍 Network Device Auditor & Command Executor
+# Network Device Auditor & Command Executor
 
 This Python script is designed to **automate the discovery, auditing, and command execution** across a fleet of network devices using **NAPALM** and **Netmiko**. It supports multivendor environments including Cisco, Arista, and Juniper with flexible credential and command configuration via YAML files.
 
