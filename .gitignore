@@ -1,6 +1,7 @@
 # ignore logs and temporary files
 *.zip
 *.txt
+*.log
 summary.json
 summary.txt
 !ip_list.txt
