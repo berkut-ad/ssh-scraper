@@ -61,6 +61,7 @@ pip install tabulate
 | `logging`            | Log device activity/debugging        |
 
 # File structure format
+```
 .
 ├── scraper.py              # Main script
 ├── ip_list.txt             # Input:List of target device IPs
@@ -70,7 +71,7 @@ pip install tabulate
 ├── summary.csv             # Output: Tabular audit result
 ├── summary.json            # Output: JSON audit result
 └── network_probe.log       # Output: Debug and execution log
-
+```
 # Example Execution
 
 ``` bash
@@ -82,18 +83,19 @@ python scraper.py \
     --debug
 
 ```
+Flags:
 
+```
 --debug: Enables verbose logging in network_probe.log
 --threads: Run up to N devices in parallel
+```
 
 # Sample table output
-+-------------+----------+--------+-------------+-----------+-----------+----------------------------+
-| ip          | platform | vendor | model       | version   | uptime    | status                     |
-+-------------+----------+--------+-------------+-----------+-----------+----------------------------+
-| 10.10.10.1  | eos      | Arista | DCS-7050QX  | 4.23.1F   | 240 hours | Success                    |
-| 10.10.10.2  | ios      | Cisco  | WS-C3850-48 | 16.6.4    | 500 hours | Success                    |
-+-------------+----------+--------+-------------+-----------+-----------+----------------------------+
 
+| ip         | platform | vendor | model       | version   | uptime     | status  |
+|------------|----------|--------|-------------|-----------|------------|---------|
+| 10.10.10.1 | eos      | Arista | DCS-7050QX  | 4.23.1F   | 240 hours  | Success |
+| 10.10.10.2 | ios      | Cisco  | WS-C3850-48 | 16.6.4    | 500 hours  | Success |
 
 # Why NAPALM doesnt work for Arista SSH-key based auth.
 NAPALM’s Arista eos driver uses pyeapi by default, not Netmiko or Paramiko directly. And pyeapi does not support SSH key-based auth unless you're connecting over HTTPS with eAPI enabled on the device. That's why it's falling back to keyboard-interactive and failing.
@@ -116,9 +118,10 @@ in the class - napalm > eos > eos.py > class EOSDriver(NetworkDriver):
 
 
 # NAPALM CLI commands.
+```
 napalm --debug --vendor eos --user admin --password Ar1sta --optional_args "transport=http" 10.10.10.1 call get_facts
 napalm --debug --vendor eos --user admin --password Password@123 --optional_args transport=\"http\" 10.10.10.1 call get_facts
-
+```
 # Use of curl to test if eAPI is working on Arista. 
 
 ``` bash
