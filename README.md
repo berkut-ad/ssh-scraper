@@ -49,6 +49,7 @@ pyenv activate napalm-env
 deactivate
 pip install napalm
 pip install tabulate
+pip install colorama
 
 | Library              | Purpose                              |
 | -------------------- | ------------------------------------ |

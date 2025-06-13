@@ -9,6 +9,8 @@ from tabulate import tabulate
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from netmiko import ConnectHandler
 from napalm import get_network_driver
+from colorama import Fore, Style, init as colorama_init
+from datetime import datetime
 
 LOG_DIR = 'logs'
 os.makedirs(LOG_DIR, exist_ok=True)
@@ -17,19 +19,44 @@ logger = logging.getLogger(__name__)
 
 
 def setup_logging(debug=False):
+    # Initialize colorama
+    colorama_init()
+
     log_format = '%(asctime)s - %(levelname)s - %(message)s'
-    logging.basicConfig(
-        filename='network_probe.log',
-        filemode='w',
-        level=logging.DEBUG if debug else logging.INFO,
-        format=log_format
-    )
-    if debug:
-        console = logging.StreamHandler()
-        console.setLevel(logging.DEBUG)
-        formatter = logging.Formatter(log_format)
-        console.setFormatter(formatter)
-        logging.getLogger().addHandler(console)
+    log_level = logging.DEBUG if debug else logging.INFO
+
+    # Clear existing handlers to prevent duplicate logs
+    root_logger = logging.getLogger()
+    root_logger.setLevel(log_level)
+    root_logger.handlers = []
+
+    # File handler
+    file_handler = logging.FileHandler('network_probe.log', mode='w')
+    file_formatter = logging.Formatter(log_format)
+    file_handler.setFormatter(file_formatter)
+    file_handler.setLevel(log_level)
+    root_logger.addHandler(file_handler)
+
+    # Colored console handler
+    class ColorFormatter(logging.Formatter):
+        COLORS = {
+            logging.DEBUG: Fore.CYAN,
+            logging.INFO: Fore.GREEN,
+            logging.WARNING: Fore.YELLOW,
+            logging.ERROR: Fore.RED,
+            logging.CRITICAL: Fore.MAGENTA + Style.BRIGHT,
+        }
+
+        def format(self, record):
+            color = self.COLORS.get(record.levelno, "")
+            reset = Style.RESET_ALL
+            message = super().format(record)
+            return f"{color}{message}{reset}"
+
+    console_handler = logging.StreamHandler()
+    console_handler.setFormatter(ColorFormatter(log_format))
+    console_handler.setLevel(log_level)
+    root_logger.addHandler(console_handler)
 
 
 def load_yaml_file(filename):
@@ -40,6 +67,77 @@ def load_yaml_file(filename):
 def read_ip_file(filename):
     with open(filename) as f:
         return [line.strip() for line in f if line.strip()]
+
+
+def detect_vendor_with_netmiko(ip, creds, platform_hint='arista_eos'):
+    logger.info(f"[{ip}] Attempting vendor detection using Netmiko.")
+
+    conn_params = {
+        'device_type': platform_hint,  # e.g., arista_eos
+        'host': ip,
+        'username': creds['username'],
+    }
+
+    if creds.get('auth_method') == 'ssh_key':
+        conn_params['use_keys'] = True
+        conn_params['key_file'] = creds.get('ssh_key_file')
+    else:
+        conn_params['password'] = creds.get('password')
+
+    if 'secret' in creds:
+        conn_params['secret'] = creds['secret']
+
+    try:
+        conn = ConnectHandler(**conn_params)
+        if not platform_hint.startswith("arista"):
+            conn.enable()
+
+        logger.info(f"[{ip}] Connected successfully for vendor detection.")
+        output = conn.send_command("show version", use_textfsm=True)
+
+        # TextFSM helps parse output (if available)
+        logger.debug(f"[{ip}] 'show version' output: {output}")
+
+        vendor = "Unknown"
+        model = "-"
+        version = "-"
+        uptime = "-"
+        if isinstance(output, list) and output:
+            output = output[0]  # Use the first parsed entry
+            vendor = output.get('vendor', 'Unknown')
+            model = output.get('hardware', ['-'])[0]
+            version = output.get('version', '-')
+        else:
+            raw = conn.send_command("show version")
+            if "Cisco" in raw:
+                vendor = "Cisco"
+            elif "Arista" in raw:
+                vendor = "Arista"
+            elif "Juniper" in raw:
+                vendor = "Juniper"
+            elif "Palo Alto" in raw or "PA-" in raw:
+                vendor = "Palo Alto"
+            version = "unknown"
+
+        conn.disconnect()
+
+        return {
+            'vendor': vendor,
+            'model': model,
+            'version': version,
+            'uptime': uptime,
+            'status': 'Detected via Netmiko'
+        }
+
+    except Exception as e:
+        logger.error(f"[{ip}] Vendor detection with Netmiko failed: {e}")
+        return {
+            'vendor': '-',
+            'model': '-',
+            'version': '-',
+            'uptime': '-',
+            'status': f"Netmiko Detection Failed: {e}"
+        }
 
 
 def get_platform_mapping(vendor):
@@ -54,13 +152,15 @@ def get_platform_mapping(vendor):
         return "paloalto_panos"
     return "generic"
 
+
 def probe_device_with_napalm(ip, creds):
     logger.info(f"[{ip}] Starting NAPALM probe.")
 
     try:
         # Detect if Arista and SSH transport (eAPI not available)
-        if creds.get('optional_args', {}).get('transport', '') == 'ssh':
-            logger.info(f"[{ip}] Arista with SSH transport detected — skipping NAPALM.")
+        if (creds.get('auth_method') == 'ssh_key') and creds.get('optional_args', {}).get('transport', '') == 'ssh':
+            logger.info(f"[{ip}] SSH key-based auth detected with SSH transport — testing if device is Arista.")
+            # Try to detect Arista from the IP (optional pre-logic), or proceed to fallback after NAPALM
             return {
                 'ip': ip,
                 'platform': 'arista_eos',
@@ -69,7 +169,7 @@ def probe_device_with_napalm(ip, creds):
                 'version': '-',
                 'uptime': '-',
                 'device_type': 'Default',
-                'status': 'Skipped NAPALM (SSH transport)'
+                'status': 'Proceed'
             }
 
         for driver_name in ['eos', 'ios', 'nxos', 'junos', 'panos']:
@@ -211,9 +311,12 @@ def process_device(ip, creds, commands_data):
     logger.info(f"[{ip}] Processing started.")
     result = probe_device_with_napalm(ip, creds)
 
-    if result['status'] != 'Success':
-        logger.warning(f"[{ip}] Skipping command run due to NAPALM failure.")
-        return result
+    if result['status'] not in ['Success', 'Proceed']:
+        logger.warning(f"[{ip}] NAPALM did not run successfully. Attempting fallback detection with Netmiko.")
+        fallback = detect_vendor_with_netmiko(ip, creds)
+        result.update(fallback)
+        if fallback['vendor'] == '-' or fallback['status'].startswith("Netmiko Detection Failed"):
+            return result  # Skip further if detection fails
 
     vendor = result['vendor']
     platform = get_platform_mapping(vendor)
@@ -224,8 +327,9 @@ def process_device(ip, creds, commands_data):
 
     command_output = run_commands_with_netmiko(ip, creds, platform, commands)
     log_output += command_output
-
-    logfile = os.path.join(LOG_DIR, f"{ip}.txt")
+    
+    timestamp = datetime.now().strftime('%Y-%m-%d_%H:%M:%S')
+    logfile = os.path.join(LOG_DIR, f"{ip}_{timestamp}.txt")
     with open(logfile, 'w') as f:
         f.write(log_output)
         logger.info(f"[{ip}] Log written to {logfile}")
