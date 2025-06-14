@@ -328,7 +328,7 @@ def process_device(ip, creds, commands_data):
     command_output = run_commands_with_netmiko(ip, creds, platform, commands)
     log_output += command_output
     
-    timestamp = datetime.now().strftime('%Y-%m-%d_%H:%M:%S')
+    timestamp = datetime.now().strftime('%Y-%m-%d_%H-%M-%S')
     logfile = os.path.join(LOG_DIR, f"{ip}_{timestamp}.txt")
     with open(logfile, 'w') as f:
         f.write(log_output)

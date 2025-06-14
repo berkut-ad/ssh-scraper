@@ -2,7 +2,8 @@
 *.zip
 *.txt
 *.log
+!ip_list.txt
 summary.json
 summary.txt
-!ip_list.txt
 credentials-*
+test*
